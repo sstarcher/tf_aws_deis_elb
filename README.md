@@ -13,3 +13,15 @@ AWS CLI must be installed locally as it uses an terraform local provisioner to a
 * dns_zone - AWS Route53 zone of the DNS entry
 
 This is an example feel free to copy and delete whatever is not needed.
+
+
+```
+module "cluster_elb" {
+    region = "us-west-2"
+    source = "github.com/sstarcher/tf_aws_deis_elb"
+    subnet_ids = "subnet-1234566,subnet-8123124"
+    autoscaler_name = "KubernetesAutoScalingGroup"
+    public_security_group = "sg-12321321"
+    record_name ="*.deis.private"
+}
+```
